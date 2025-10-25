@@ -14,11 +14,6 @@ on:
         required: false
         default: '1.0.0'
         type: string
-      ref:
-        description: '发布ref'
-        required: false
-        default: 'RC'
-        type: string
   
 jobs:
   build:
