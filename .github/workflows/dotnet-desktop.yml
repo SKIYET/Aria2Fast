@@ -32,7 +32,7 @@ jobs:
       - name: Determine Pre-release Status
         id: prerelease
         run: |
-          $ref = "${{ github.ref }}"
+          $ref = "${{ github.ref || 'continuous' }}"
           if ($ref -like "*alpha*") {
             echo "##[set-output name=status;]true"
           } else {
@@ -76,7 +76,7 @@ jobs:
       - name: Process tag and rename file
         id: processTag
         run: |
-          $tagStr="$(echo "${{ github.ref }}" | cut -d / -f 3)"
+          $tagStr="$(echo "${{ github.ref || 'continuous' }}" | cut -d / -f 3)"
           $newName="Aria2Fast-$tagStr.zip"
           echo "$newName"
           echo "##[set-output name=tag;]$tagStr"
