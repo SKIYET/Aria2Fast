@@ -88,8 +88,8 @@ jobs:
       - name: Create a Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "Aria2Fast-${{ steps.processTag.outputs.tag }}.zip"
-          prerelease: ${{ steps.prerelease.outputs.status }}
+          artifacts: "Aria2Fast-${{ steps.processTag.outputs.tag || 'continuous' }}.zip"
+          prerelease: ${{ steps.prerelease.outputs.status || 'continuous' }}
           token: ${{ secrets.GIT_TOKEN }}
 
       - uses: geekyeggo/delete-artifact@v5
