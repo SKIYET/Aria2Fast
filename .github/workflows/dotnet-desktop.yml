@@ -83,7 +83,7 @@ jobs:
         with:
           artifacts: "Aria2Fast-${{ steps.processTag.outputs.tag }}.zip"
           prerelease: ${{ steps.prerelease.outputs.status }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}
 
       - uses: geekyeggo/delete-artifact@v5
         with:
